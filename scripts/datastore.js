@@ -8,11 +8,11 @@
     }
 
     function promiseResolvedWith(value) {
-       var promise = new Promise(function (resolve, reject) {
-         resolve(value);
-       });
-       return promise;
-     }
+        var promise = new Promise(function(resolve, reject) {
+            resolve(value);
+        });
+        return promise;
+    }
 
     DataStore.prototype.add = function(key, val) {
         return promiseResolvedWith(null);

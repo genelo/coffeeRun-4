@@ -21,12 +21,12 @@
 
     formHandler.addSubmitHandler(function(data) {
         return myTruck.createOrder.call(myTruck, data)
-        .then(function(){
-        checkList.addRow.call(checkList, data);
-      });
+            .then(function() {
+                checkList.addRow.call(checkList, data);
+            });
     });
     formHandler.addInputHandler(Validation.isCompanyEmail);
     myTruck.printOrders(checkList.addRow.bind(checkList));
     formHandler.addDecafHandler(Validation.isDecaf);
-    formHandler.addExistHandler(SERVER_URL,Validation.isExistingEmail);
+    formHandler.addExistHandler(SERVER_URL, Validation.isExistingEmail);
 })(window);

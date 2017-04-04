@@ -12,17 +12,16 @@
             }
             return true;
         },
-        isExistingEmail: function(url, emailAddress){
-          $.get(url + '/' + emailAddress, function(serverResponse){
-             if(serverResponse == null){
-               return true;
-             }
-             else{
-               return false;
-             }
-    });
-  }
-}
+        isExistingEmail: function(url, emailAddress) {
+            $.get(url + '/' + emailAddress, function(serverResponse) {
+                if (serverResponse == null) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        }
+    }
     App.Validation = Validation;
     window.App = App;
 })(window);

@@ -2,6 +2,7 @@
     'use strict';
     var App = window.App || {};
     var $ = window.jQuery;
+
     function FormHandler(selector) {
         if (!selector) {
             throw new Error('no selector provided');
@@ -24,10 +25,10 @@
 
             console.log(data);
             fn(data)
-            .then(function(){
-            this.reset();
-            this.elements[0].focus();
-          }.bind(this));
+                .then(function() {
+                    this.reset();
+                    this.elements[0].focus();
+                }.bind(this));
         });
     };
 
@@ -82,18 +83,17 @@
 
     FormHandler.prototype.addExistHandler = function(url, fn) {
         console.log('Setting exist handler for form');
-        this.$formElement.on('submit', '[name="emailAddress"]', function(event){
+        this.$formElement.on('submit', '[name="emailAddress"]', function(event) {
             var emailAddress = event.target.value;
             var message = '';
-            if(fn(url, emailAddress)){
-                 event.target.setCustomValidity('');
-               }
-            else {
+            if (fn(url, emailAddress)) {
+                event.target.setCustomValidity('');
+            } else {
                 message = emailAddress + ' already has an existing order'
                 event.target.setCustomValidity(message);
             }
         });
-  };
+    };
     App.FormHandler = FormHandler;
     window.App = App;
 })(window);
